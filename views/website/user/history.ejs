@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>History - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section id="media-set-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+
+            <header>
+              <h2>History</h2>
+              <button id="delete-history" class="btn-small">Delete history</button>
+            </header>
+
+            <%- include('../partials/media/videos_list', { videos, options: { displayMode: 'vertical', showVisualizationDate: true } }) %>
+
+          </div>
+        </div>
+        
+        <%- include('../partials/pagination', { path: '/user/history', params: null }) %>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  
+  <script src="/js/media.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <title>Welcome to Kettlebell Wiki</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <%- include('partials/header') %>
+
+    <div class="main">
+      <h1>Hello <%= user.name %> <%= user.surname %></h1>
+      <p>
+        Thank you for signing in to Kettlebell Wiki! We would like to gift you with 14-days of totally free access to Kettlebell
+        Wiki, so you can test the full potential of the platform. Since you already registered, your free 14-days trial starts
+        today. Log in and enjoy our +500 videos of kettlebell exercises! If you forgot your credentials, you can reset your
+        password <a href="<%= domain || env.website.rootUrl %>/user/reset-password">here</a>.<br><br>
+        
+        <b>Kettlebell is the way!</b><br>
+        Kettlebell Wiki Staff
+      </p>
+    </div>
+  
+    <%- include('partials/footer') %>
+  
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>Trial - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <h2 class="uppercase">
+              <span class="text-primary">Try Kettlebell Wiki</span><br>
+              <span>For free</span>
+            </h2>
+            <p>
+              Do you want a FREE taste of Kettlebell Wiki? 
+              By signing in now, you will get 14-days <b>FREE</b> access to all available content on the platform! 
+              <b>NO CREDIT CARD REQUIRED FOR FREE TRIAL!!!</b><br><br>
+              You will have a chance to try the potential of all the exercise videos we have created for you. You will also have a chance to:<br>
+              •	Download my E-BOOK on kettlebell training and useful training advice for FREE.<br>
+              •	Try the complimentary RANDOM TRAINING GENERATOR, to get ever new kettlebell workouts to power your training!<br>
+              •	Surf our exercises COLLECTIONS (there are over 40 of them!), where you can find exercises divided in categories ad variants.<br><br>
+              <b>NOTE:</b> the activation of your 14-days free trial can be immediate or require up to a couple of hours, due to time zone differences.
+              Have fun with your kettlebells and our videos!
+
+              <a href="/sign-in" class="btn">14 days free trial</a>
+            </p>
+
+            <%# <p>
+              Here are some of my videos! Feel free to watch them. You can find more free videos on my
+              <a href="https://www.youtube.com/playlist?list=PLMwn0Wb9_gdorON6rCkVBabXJkhkeBirM">YouTube playlist</a>.
+              To gain access to all of my videos <a href="/purchase">subscribe</a> to Kettlebell Wiki.
+            </p> %>
+            
+            <%- include('partials/media/videos_list', { videos, options: { displayMode: 'grid' } }) %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+
+</html>

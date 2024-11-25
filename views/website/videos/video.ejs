@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title><%= capitalize(video.title) %> - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section id="main-video-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div id="main-video" class="video" video-id="<%= video.id %>">
+              <div class="embed-container">
+                <iframe src="https://player.vimeo.com/video/<%= video.vimeoId %>?autoplay=1" frameborder="0"
+                  allow="autoplay; fullscreen" allowfullscreen></iframe>
+              </div>
+              <div class="info">
+                <h1 class="title"><%= video.title %></h1>
+                <h3 class="views"><%= video.views %> view<%= video.views != 1 ? 's' : '' %></h3>
+                <% if (video.description) { %>
+                  <p class="description"><%= video.description %></p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" id="related-videos">
+            <div class="videos-list">
+              <%- include('../partials/media/videos_list', { videos: relatedVideos, options: { displayMode: 'grid', title: 'Related videos' } }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  
+  <script src="/js/media.js"></script>
+</body>
+
+</html>

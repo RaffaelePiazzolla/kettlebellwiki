@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/form.css">
+  <title>Login - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 class="uppercase">
+              <span class="text-primary">Log into</span><br>
+              <span>Kettlebell Wiki</span>
+            </h2>
+            <p>
+              Are you ready to log in the largest video database for kettlebell exercises? If you want to be challenged and inspired
+              to be stronger and better, all you have to do is sign right in to start training with incredible and innovative
+              kettlebell exercises! If you can't access your profile or the login goes wrong, feel free to contact me
+              at <a href="mailto:info@ptlarosa.fitness">info@ptlarosa.fitness</a>.
+            </p>
+          </div>
+          <div class="col">
+            <form action="/login<%= redirect ? `?redirect=${redirect}` : '' %>" method="post" novalidate>
+
+              <% if (matches === false) { %>
+              <p class="error-message" style="font-size: 16px;">No matches found for those credentials</p>
+              <% } %>
+
+              <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="john.doe@email.com"
+                  value="<%= data.email || (errors.email && errors.email.value) || '' %>">
+                <% if (errors.email) { %>
+                <p class="error-message"><%= errors.email.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="password">Password <i class="far fa-eye"></i></label>
+                <input type="password" name="password" placeholder="enter your password"
+                  value="<%= data.password || (errors.password && errors.password.value) || '' %>">
+                <% if (errors.password) { %>
+                <p class="error-message"><%= errors.password.msg %></p>
+                <% } %>
+              </div>
+
+              <button class="btn">
+                Login <i class="fas fa-caret-right"></i>
+              </button>
+
+            </form>
+
+            <a class="text-secondary" href="/sign-in">Don't have an account? Sign in here.</a><br><br>
+            <a class="text-secondary" href="/user/reset-password">Did you forget your password?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <title>Welcome to Kettlebell Wiki</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <%- include('partials/header') %>
+
+    <div class="main">
+      <p>
+        A new user signed in:
+        <ul>
+          <li>
+            <span class="gray">Name:</span> <%= user.name %>
+          </li>
+          <li>
+            <span class="gray">Surname:</span> <%= user.surname %>
+          </li>
+          <li>
+            <span class="gray">Email:</span> <%= user.email %>
+          </li>
+          <li>
+            <span class="gray">Phone:</span> <%= user.phone %>
+          </li>
+          <li>
+            <span class="gray">Gender:</span> <%= user.gender %>
+          </li>
+          <li>
+            <span class="gray">Country:</span> <%= user.country %>
+          </li>
+        </ul>
+      </p>
+
+    </div>
+  
+    <%- include('partials/footer') %>
+  
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<%# args: { collections: Collection[], options: { displayMode?: string, withTitle?: boolean, title?: string }  } %>
+<div class="media-set" <%- !options.withTitle ? 'style="margin-top: 20px"' : '' %>>
+  <header class="media-set-title">
+    <% if (options.withTitle || options.title) { %>
+      <% if (options.withTitle) { %>
+        <a href="/collections">
+          <h3>Collections</h3>
+        </a>
+      <% } else { %>
+        <h3><%= options.title %></h3>
+      <% } %>
+    <% } %>
+    <% if (options.withOptions) { %>
+      <div class="options">
+        <i class="fas fa-th-large <%= options.displayMode == 'grid' ? 'selected' : '' %>"></i>
+        <i class="fas fa-list-ul <%= options.displayMode == 'vertical' ? 'selected' : '' %>"></i>
+      </div>
+    <% } %>
+  </header>
+  <% if (collections.length === 0) { %>
+    <div class="empty-list">
+      <p>No collections found</p>
+    </div>
+  <% } else { %>
+    <div class="<%= options.displayMode || 'vertical' %>-list">
+      <% collections.forEach(collection => { %>
+        <%- include('collection', { collection, options: { } }) %>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

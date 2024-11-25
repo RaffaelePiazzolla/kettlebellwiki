@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>Password reset - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../../partials/header') %>
+
+  <main>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 class="uppercase">
+              <span class="text-primary">Reset your</span><br>
+              <span>Password</span>
+            </h2>
+            <p>
+              In this section you can change your current password with a new one of your choice. Type in your registration email.
+              You will receive an email with a web link to reset your password and change it with a new one. Warning! This process
+              only works on this device. If you start this process on your phone you won't be able to complete it on your PC or
+              any other device (and vice versa).
+            </p>
+          </div>
+
+          <div class="col">
+
+            <form action="/user/reset-password" method="post" novalidate>
+
+              <% if (!isUserLoggedIn) { %>
+                <div class="input-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" placeholder="john.doe@email.com"
+                    value="<%= data.email || (errors.email && errors.email.value) || '' %>">
+                  <% if (errors.email) { %>
+                  <p class="error-message"><%= errors.email.msg %></p>
+                  <% } %>
+                </div>
+              <% } else { %>
+                <p>
+                  If you want to reset your password click the button.
+                </p>
+              <% } %>
+
+              <button class="btn">Reset password</button>
+            </form>
+            
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../../partials/footer') %>
+
+  
+</body>
+
+</html>

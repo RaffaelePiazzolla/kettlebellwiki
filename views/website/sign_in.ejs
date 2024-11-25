@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/form.css">
+  <title>Sign in - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 class="uppercase">
+              <span class="text-primary">Sign into</span><br>
+              <span>Kettlebell Wiki</span>
+            </h2>
+            <p>
+              By signing in, you will be able to access the world of Kettlebell Wiki, have a taste of what it is, and decide if you
+              want to discover more. You will be able to request a workout plan, watch videos of exclusive all kettlebell exercises,
+              look at the history of your watched videos, search for exercises, and more. After filling this form with the required data,
+              you will have to verify your account by clicking on the link that we will send to your email address. If you don't verify
+              your account within 30 days, you data will be permanently deleted from this website.
+            </p>
+          </div>
+          <div class="col">
+            <form action="/sign-in" method="post" novalidate>
+
+              <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="John" value="<%= data.name || (errors.name && errors.name.value) || '' %>" required>
+                <% if (errors.name) { %>
+                <p class="error-message"><%= errors.name.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="surname">Surname</label>
+                <input type="surname" name="surname" placeholder="Doe"
+                  value="<%= data.surname || (errors.surname && errors.surname.value) || '' %>" required>
+                <% if (errors.surname) { %>
+                <p class="error-message"><%= errors.surname.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="john.doe@email.com"
+                  value="<%= data.email || (errors.email && errors.email.value) || '' %>" required>
+                <% if (errors.email) { %>
+                <p class="error-message"><%= errors.email.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="password">Password <i class="far fa-eye"></i></label>
+                <input type="password" name="password" placeholder="enter your password"
+                  value="<%= data.password || (errors.password && errors.password.value) || '' %>" required>
+                <p class="info">
+                  Your password must be at least 8 characters long and must contain at least one uppercase letter, one lowercase letter,
+                  one number and one symbol <span class="monospace">(eg: '+', ':', '\', '%', '.', '>', ...)</span>
+                </p>
+                <% if (errors.password) { %>
+                <p class="error-message"><%= errors.password.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="phone">Phone <span class="info">(optional)</span></label>
+                <input type="tel" name="phone" placeholder="enter your phone number"
+                  value="<%= data.phone || (errors.phone && errors.phone.value) || '' %>">
+                <% if (errors.phone) { %>
+                <p class="error-message"><%= errors.phone.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="gender">Gender</label>
+                <select name="gender" required>
+                  <option <%= !data.country ? 'selected' : '' %> disabled>-</option>
+                  <option value="male" <%= data.gender == 'male' ? 'selected' : '' %>>Male</option>
+                  <option value="female" <%= data.gender == 'female' ? 'selected' : '' %>>Female</option>
+                  <option value="other" <%= data.gender == 'other' ? 'selected' : '' %>>Other</option>
+                </select>
+                <% if (errors.gender) { %>
+                <p class="error-message"><%= errors.gender.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <label for="country">Country</label>
+                <select name="country" required>
+                  <option <%= !data.country ? 'selected' : '' %> disabled>-</option>
+                  <option value="AF" <%= data.country == 'AF' ? 'selected' : '' %>>Afghanistan</option>
+                  <option value="AX" <%= data.country == 'AX' ? 'selected' : '' %>>Åland Islands</option>
+                  <option value="AL" <%= data.country == 'AL' ? 'selected' : '' %>>Albania</option>
+                  <option value="DZ" <%= data.country == 'DZ' ? 'selected' : '' %>>Algeria</option>
+                  <option value="AS" <%= data.country == 'AS' ? 'selected' : '' %>>American Samoa</option>
+                  <option value="AD" <%= data.country == 'AD' ? 'selected' : '' %>>Andorra</option>
+                  <option value="AO" <%= data.country == 'AO' ? 'selected' : '' %>>Angola</option>
+                  <option value="AI" <%= data.country == 'AI' ? 'selected' : '' %>>Anguilla</option>
+                  <option value="AQ" <%= data.country == 'AQ' ? 'selected' : '' %>>Antarctica</option>
+                  <option value="AG" <%= data.country == 'AG' ? 'selected' : '' %>>Antigua and Barbuda</option>
+                  <option value="AR" <%= data.country == 'AR' ? 'selected' : '' %>>Argentina</option>
+                  <option value="AM" <%= data.country == 'AM' ? 'selected' : '' %>>Armenia</option>
+                  <option value="AW" <%= data.country == 'AW' ? 'selected' : '' %>>Aruba</option>
+                  <option value="AU" <%= data.country == 'AU' ? 'selected' : '' %>>Australia</option>
+                  <option value="AT" <%= data.country == 'AT' ? 'selected' : '' %>>Austria</option>
+                  <option value="AZ" <%= data.country == 'AZ' ? 'selected' : '' %>>Azerbaijan</option>
+                  <option value="BS" <%= data.country == 'BS' ? 'selected' : '' %>>Bahamas</option>
+                  <option value="BH" <%= data.country == 'BH' ? 'selected' : '' %>>Bahrain</option>
+                  <option value="BD" <%= data.country == 'BD' ? 'selected' : '' %>>Bangladesh</option>
+                  <option value="BB" <%= data.country == 'BB' ? 'selected' : '' %>>Barbados</option>
+                  <option value="BY" <%= data.country == 'BY' ? 'selected' : '' %>>Belarus</option>
+                  <option value="BE" <%= data.country == 'BE' ? 'selected' : '' %>>Belgium</option>
+                  <option value="BZ" <%= data.country == 'BZ' ? 'selected' : '' %>>Belize</option>
+                  <option value="BJ" <%= data.country == 'BJ' ? 'selected' : '' %>>Benin</option>
+                  <option value="BM" <%= data.country == 'BM' ? 'selected' : '' %>>Bermuda</option>
+                  <option value="BT" <%= data.country == 'BT' ? 'selected' : '' %>>Bhutan</option>
+                  <option value="BO" <%= data.country == 'BO' ? 'selected' : '' %>>Bolivia, Plurinational State of</option>
+                  <option value="BQ" <%= data.country == 'BQ' ? 'selected' : '' %>>Bonaire, Sint Eustatius and Saba</option>
+                  <option value="BA" <%= data.country == 'BA' ? 'selected' : '' %>>Bosnia and Herzegovina</option>
+                  <option value="BW" <%= data.country == 'BW' ? 'selected' : '' %>>Botswana</option>
+                  <option value="BV" <%= data.country == 'BV' ? 'selected' : '' %>>Bouvet Island</option>
+                  <option value="BR" <%= data.country == 'BR' ? 'selected' : '' %>>Brazil</option>
+                  <option value="IO" <%= data.country == 'IO' ? 'selected' : '' %>>British Indian Ocean Territory</option>
+                  <option value="BN" <%= data.country == 'BN' ? 'selected' : '' %>>Brunei Darussalam</option>
+                  <option value="BG" <%= data.country == 'BG' ? 'selected' : '' %>>Bulgaria</option>
+                  <option value="BF" <%= data.country == 'BF' ? 'selected' : '' %>>Burkina Faso</option>
+                  <option value="BI" <%= data.country == 'BI' ? 'selected' : '' %>>Burundi</option>
+                  <option value="KH" <%= data.country == 'KH' ? 'selected' : '' %>>Cambodia</option>
+                  <option value="CM" <%= data.country == 'CM' ? 'selected' : '' %>>Cameroon</option>
+                  <option value="CA" <%= data.country == 'CA' ? 'selected' : '' %>>Canada</option>
+                  <option value="CV" <%= data.country == 'CV' ? 'selected' : '' %>>Cape Verde</option>
+                  <option value="KY" <%= data.country == 'KY' ? 'selected' : '' %>>Cayman Islands</option>
+                  <option value="CF" <%= data.country == 'CF' ? 'selected' : '' %>>Central African Republic</option>
+                  <option value="TD" <%= data.country == 'TD' ? 'selected' : '' %>>Chad</option>
+                  <option value="CL" <%= data.country == 'CL' ? 'selected' : '' %>>Chile</option>
+                  <option value="CN" <%= data.country == 'CN' ? 'selected' : '' %>>China</option>
+                  <option value="CX" <%= data.country == 'CX' ? 'selected' : '' %>>Christmas Island</option>
+                  <option value="CC" <%= data.country == 'CC' ? 'selected' : '' %>>Cocos (Keeling) Islands</option>
+                  <option value="CO" <%= data.country == 'CO' ? 'selected' : '' %>>Colombia</option>
+                  <option value="KM" <%= data.country == 'KM' ? 'selected' : '' %>>Comoros</option>
+                  <option value="CG" <%= data.country == 'CG' ? 'selected' : '' %>>Congo</option>
+                  <option value="CD" <%= data.country == 'CD' ? 'selected' : '' %>>Congo, the Democratic Republic of the</option>
+                  <option value="CK" <%= data.country == 'CK' ? 'selected' : '' %>>Cook Islands</option>
+                  <option value="CR" <%= data.country == 'CR' ? 'selected' : '' %>>Costa Rica</option>
+                  <option value="CI" <%= data.country == 'CI' ? 'selected' : '' %>>Côte d'Ivoire</option>
+                  <option value="HR" <%= data.country == 'HR' ? 'selected' : '' %>>Croatia</option>
+                  <option value="CU" <%= data.country == 'CU' ? 'selected' : '' %>>Cuba</option>
+                  <option value="CW" <%= data.country == 'CW' ? 'selected' : '' %>>Curaçao</option>
+                  <option value="CY" <%= data.country == 'CY' ? 'selected' : '' %>>Cyprus</option>
+                  <option value="CZ" <%= data.country == 'CZ' ? 'selected' : '' %>>Czech Republic</option>
+                  <option value="DK" <%= data.country == 'DK' ? 'selected' : '' %>>Denmark</option>
+                  <option value="DJ" <%= data.country == 'DJ' ? 'selected' : '' %>>Djibouti</option>
+                  <option value="DM" <%= data.country == 'DM' ? 'selected' : '' %>>Dominica</option>
+                  <option value="DO" <%= data.country == 'DO' ? 'selected' : '' %>>Dominican Republic</option>
+                  <option value="EC" <%= data.country == 'EC' ? 'selected' : '' %>>Ecuador</option>
+                  <option value="EG" <%= data.country == 'EG' ? 'selected' : '' %>>Egypt</option>
+                  <option value="SV" <%= data.country == 'SV' ? 'selected' : '' %>>El Salvador</option>
+                  <option value="GQ" <%= data.country == 'GQ' ? 'selected' : '' %>>Equatorial Guinea</option>
+                  <option value="ER" <%= data.country == 'ER' ? 'selected' : '' %>>Eritrea</option>
+                  <option value="EE" <%= data.country == 'EE' ? 'selected' : '' %>>Estonia</option>
+                  <option value="ET" <%= data.country == 'ET' ? 'selected' : '' %>>Ethiopia</option>
+                  <option value="FK" <%= data.country == 'FK' ? 'selected' : '' %>>Falkland Islands (Malvinas)</option>
+                  <option value="FO" <%= data.country == 'FO' ? 'selected' : '' %>>Faroe Islands</option>
+                  <option value="FJ" <%= data.country == 'FJ' ? 'selected' : '' %>>Fiji</option>
+                  <option value="FI" <%= data.country == 'FI' ? 'selected' : '' %>>Finland</option>
+                  <option value="FR" <%= data.country == 'FR' ? 'selected' : '' %>>France</option>
+                  <option value="GF" <%= data.country == 'GF' ? 'selected' : '' %>>French Guiana</option>
+                  <option value="PF" <%= data.country == 'PF' ? 'selected' : '' %>>French Polynesia</option>
+                  <option value="TF" <%= data.country == 'TF' ? 'selected' : '' %>>French Southern Territories</option>
+                  <option value="GA" <%= data.country == 'GA' ? 'selected' : '' %>>Gabon</option>
+                  <option value="GM" <%= data.country == 'GM' ? 'selected' : '' %>>Gambia</option>
+                  <option value="GE" <%= data.country == 'GE' ? 'selected' : '' %>>Georgia</option>
+                  <option value="DE" <%= data.country == 'DE' ? 'selected' : '' %>>Germany</option>
+                  <option value="GH" <%= data.country == 'GH' ? 'selected' : '' %>>Ghana</option>
+                  <option value="GI" <%= data.country == 'GI' ? 'selected' : '' %>>Gibraltar</option>
+                  <option value="GR" <%= data.country == 'GR' ? 'selected' : '' %>>Greece</option>
+                  <option value="GL" <%= data.country == 'GL' ? 'selected' : '' %>>Greenland</option>
+                  <option value="GD" <%= data.country == 'GD' ? 'selected' : '' %>>Grenada</option>
+                  <option value="GP" <%= data.country == 'GP' ? 'selected' : '' %>>Guadeloupe</option>
+                  <option value="GU" <%= data.country == 'GU' ? 'selected' : '' %>>Guam</option>
+                  <option value="GT" <%= data.country == 'GT' ? 'selected' : '' %>>Guatemala</option>
+                  <option value="GG" <%= data.country == 'GG' ? 'selected' : '' %>>Guernsey</option>
+                  <option value="GN" <%= data.country == 'GN' ? 'selected' : '' %>>Guinea</option>
+                  <option value="GW" <%= data.country == 'GW' ? 'selected' : '' %>>Guinea-Bissau</option>
+                  <option value="GY" <%= data.country == 'GY' ? 'selected' : '' %>>Guyana</option>
+                  <option value="HT" <%= data.country == 'HT' ? 'selected' : '' %>>Haiti</option>
+                  <option value="HM" <%= data.country == 'HM' ? 'selected' : '' %>>Heard Island and McDonald Islands</option>
+                  <option value="VA" <%= data.country == 'VA' ? 'selected' : '' %>>Holy See (Vatican City State)</option>
+                  <option value="HN" <%= data.country == 'HN' ? 'selected' : '' %>>Honduras</option>
+                  <option value="HK" <%= data.country == 'HK' ? 'selected' : '' %>>Hong Kong</option>
+                  <option value="HU" <%= data.country == 'HU' ? 'selected' : '' %>>Hungary</option>
+                  <option value="IS" <%= data.country == 'IS' ? 'selected' : '' %>>Iceland</option>
+                  <option value="IN" <%= data.country == 'IN' ? 'selected' : '' %>>India</option>
+                  <option value="ID" <%= data.country == 'ID' ? 'selected' : '' %>>Indonesia</option>
+                  <option value="IR" <%= data.country == 'IR' ? 'selected' : '' %>>Iran, Islamic Republic of</option>
+                  <option value="IQ" <%= data.country == 'IQ' ? 'selected' : '' %>>Iraq</option>
+                  <option value="IE" <%= data.country == 'IE' ? 'selected' : '' %>>Ireland</option>
+                  <option value="IM" <%= data.country == 'IM' ? 'selected' : '' %>>Isle of Man</option>
+                  <option value="IL" <%= data.country == 'IL' ? 'selected' : '' %>>Israel</option>
+                  <option value="IT" <%= data.country == 'IT' ? 'selected' : '' %>>Italy</option>
+                  <option value="JM" <%= data.country == 'JM' ? 'selected' : '' %>>Jamaica</option>
+                  <option value="JP" <%= data.country == 'JP' ? 'selected' : '' %>>Japan</option>
+                  <option value="JE" <%= data.country == 'JE' ? 'selected' : '' %>>Jersey</option>
+                  <option value="JO" <%= data.country == 'JO' ? 'selected' : '' %>>Jordan</option>
+                  <option value="KZ" <%= data.country == 'KZ' ? 'selected' : '' %>>Kazakhstan</option>
+                  <option value="KE" <%= data.country == 'KE' ? 'selected' : '' %>>Kenya</option>
+                  <option value="KI" <%= data.country == 'KI' ? 'selected' : '' %>>Kiribati</option>
+                  <option value="KP" <%= data.country == 'KP' ? 'selected' : '' %>>Korea, Democratic People's Republic of</option>
+                  <option value="KR" <%= data.country == 'KR' ? 'selected' : '' %>>Korea, Republic of</option>
+                  <option value="KW" <%= data.country == 'KW' ? 'selected' : '' %>>Kuwait</option>
+                  <option value="KG" <%= data.country == 'KG' ? 'selected' : '' %>>Kyrgyzstan</option>
+                  <option value="LA" <%= data.country == 'LA' ? 'selected' : '' %>>Lao People's Democratic Republic</option>
+                  <option value="LV" <%= data.country == 'LV' ? 'selected' : '' %>>Latvia</option>
+                  <option value="LB" <%= data.country == 'LB' ? 'selected' : '' %>>Lebanon</option>
+                  <option value="LS" <%= data.country == 'LS' ? 'selected' : '' %>>Lesotho</option>
+                  <option value="LR" <%= data.country == 'LR' ? 'selected' : '' %>>Liberia</option>
+                  <option value="LY" <%= data.country == 'LY' ? 'selected' : '' %>>Libya</option>
+                  <option value="LI" <%= data.country == 'LI' ? 'selected' : '' %>>Liechtenstein</option>
+                  <option value="LT" <%= data.country == 'LT' ? 'selected' : '' %>>Lithuania</option>
+                  <option value="LU" <%= data.country == 'LU' ? 'selected' : '' %>>Luxembourg</option>
+                  <option value="MO" <%= data.country == 'MO' ? 'selected' : '' %>>Macao</option>
+                  <option value="MK" <%= data.country == 'MK' ? 'selected' : '' %>>Macedonia, the former Yugoslav Republic of</option>
+                  <option value="MG" <%= data.country == 'MG' ? 'selected' : '' %>>Madagascar</option>
+                  <option value="MW" <%= data.country == 'MW' ? 'selected' : '' %>>Malawi</option>
+                  <option value="MY" <%= data.country == 'MY' ? 'selected' : '' %>>Malaysia</option>
+                  <option value="MV" <%= data.country == 'MV' ? 'selected' : '' %>>Maldives</option>
+                  <option value="ML" <%= data.country == 'ML' ? 'selected' : '' %>>Mali</option>
+                  <option value="MT" <%= data.country == 'MT' ? 'selected' : '' %>>Malta</option>
+                  <option value="MH" <%= data.country == 'MH' ? 'selected' : '' %>>Marshall Islands</option>
+                  <option value="MQ" <%= data.country == 'MQ' ? 'selected' : '' %>>Martinique</option>
+                  <option value="MR" <%= data.country == 'MR' ? 'selected' : '' %>>Mauritania</option>
+                  <option value="MU" <%= data.country == 'MU' ? 'selected' : '' %>>Mauritius</option>
+                  <option value="YT" <%= data.country == 'YT' ? 'selected' : '' %>>Mayotte</option>
+                  <option value="MX" <%= data.country == 'MX' ? 'selected' : '' %>>Mexico</option>
+                  <option value="FM" <%= data.country == 'FM' ? 'selected' : '' %>>Micronesia, Federated States of</option>
+                  <option value="MD" <%= data.country == 'MD' ? 'selected' : '' %>>Moldova, Republic of</option>
+                  <option value="MC" <%= data.country == 'MC' ? 'selected' : '' %>>Monaco</option>
+                  <option value="MN" <%= data.country == 'MN' ? 'selected' : '' %>>Mongolia</option>
+                  <option value="ME" <%= data.country == 'ME' ? 'selected' : '' %>>Montenegro</option>
+                  <option value="MS" <%= data.country == 'MS' ? 'selected' : '' %>>Montserrat</option>
+                  <option value="MA" <%= data.country == 'MA' ? 'selected' : '' %>>Morocco</option>
+                  <option value="MZ" <%= data.country == 'MZ' ? 'selected' : '' %>>Mozambique</option>
+                  <option value="MM" <%= data.country == 'MM' ? 'selected' : '' %>>Myanmar</option>
+                  <option value="NA" <%= data.country == 'NA' ? 'selected' : '' %>>Namibia</option>
+                  <option value="NR" <%= data.country == 'NR' ? 'selected' : '' %>>Nauru</option>
+                  <option value="NP" <%= data.country == 'NP' ? 'selected' : '' %>>Nepal</option>
+                  <option value="NL" <%= data.country == 'NL' ? 'selected' : '' %>>Netherlands</option>
+                  <option value="NC" <%= data.country == 'NC' ? 'selected' : '' %>>New Caledonia</option>
+                  <option value="NZ" <%= data.country == 'NZ' ? 'selected' : '' %>>New Zealand</option>
+                  <option value="NI" <%= data.country == 'NI' ? 'selected' : '' %>>Nicaragua</option>
+                  <option value="NE" <%= data.country == 'NE' ? 'selected' : '' %>>Niger</option>
+                  <option value="NG" <%= data.country == 'NG' ? 'selected' : '' %>>Nigeria</option>
+                  <option value="NU" <%= data.country == 'NU' ? 'selected' : '' %>>Niue</option>
+                  <option value="NF" <%= data.country == 'NF' ? 'selected' : '' %>>Norfolk Island</option>
+                  <option value="MP" <%= data.country == 'MP' ? 'selected' : '' %>>Northern Mariana Islands</option>
+                  <option value="NO" <%= data.country == 'NO' ? 'selected' : '' %>>Norway</option>
+                  <option value="OM" <%= data.country == 'OM' ? 'selected' : '' %>>Oman</option>
+                  <option value="PK" <%= data.country == 'PK' ? 'selected' : '' %>>Pakistan</option>
+                  <option value="PW" <%= data.country == 'PW' ? 'selected' : '' %>>Palau</option>
+                  <option value="PS" <%= data.country == 'PS' ? 'selected' : '' %>>Palestinian Territory, Occupied</option>
+                  <option value="PA" <%= data.country == 'PA' ? 'selected' : '' %>>Panama</option>
+                  <option value="PG" <%= data.country == 'PG' ? 'selected' : '' %>>Papua New Guinea</option>
+                  <option value="PY" <%= data.country == 'PY' ? 'selected' : '' %>>Paraguay</option>
+                  <option value="PE" <%= data.country == 'PE' ? 'selected' : '' %>>Peru</option>
+                  <option value="PH" <%= data.country == 'PH' ? 'selected' : '' %>>Philippines</option>
+                  <option value="PN" <%= data.country == 'PN' ? 'selected' : '' %>>Pitcairn</option>
+                  <option value="PL" <%= data.country == 'PL' ? 'selected' : '' %>>Poland</option>
+                  <option value="PT" <%= data.country == 'PT' ? 'selected' : '' %>>Portugal</option>
+                  <option value="PR" <%= data.country == 'PR' ? 'selected' : '' %>>Puerto Rico</option>
+                  <option value="QA" <%= data.country == 'QA' ? 'selected' : '' %>>Qatar</option>
+                  <option value="RE" <%= data.country == 'RE' ? 'selected' : '' %>>Réunion</option>
+                  <option value="RO" <%= data.country == 'RO' ? 'selected' : '' %>>Romania</option>
+                  <option value="RU" <%= data.country == 'RU' ? 'selected' : '' %>>Russian Federation</option>
+                  <option value="RW" <%= data.country == 'RW' ? 'selected' : '' %>>Rwanda</option>
+                  <option value="BL" <%= data.country == 'BL' ? 'selected' : '' %>>Saint Barthélemy</option>
+                  <option value="SH" <%= data.country == 'SH' ? 'selected' : '' %>>Saint Helena, Ascension and Tristan da Cunha</option>
+                  <option value="KN" <%= data.country == 'KN' ? 'selected' : '' %>>Saint Kitts and Nevis</option>
+                  <option value="LC" <%= data.country == 'LC' ? 'selected' : '' %>>Saint Lucia</option>
+                  <option value="MF" <%= data.country == 'MF' ? 'selected' : '' %>>Saint Martin (French part)</option>
+                  <option value="PM" <%= data.country == 'PM' ? 'selected' : '' %>>Saint Pierre and Miquelon</option>
+                  <option value="VC" <%= data.country == 'VC' ? 'selected' : '' %>>Saint Vincent and the Grenadines</option>
+                  <option value="WS" <%= data.country == 'WS' ? 'selected' : '' %>>Samoa</option>
+                  <option value="SM" <%= data.country == 'SM' ? 'selected' : '' %>>San Marino</option>
+                  <option value="ST" <%= data.country == 'ST' ? 'selected' : '' %>>Sao Tome and Principe</option>
+                  <option value="SA" <%= data.country == 'SA' ? 'selected' : '' %>>Saudi Arabia</option>
+                  <option value="SN" <%= data.country == 'SN' ? 'selected' : '' %>>Senegal</option>
+                  <option value="RS" <%= data.country == 'RS' ? 'selected' : '' %>>Serbia</option>
+                  <option value="SC" <%= data.country == 'SC' ? 'selected' : '' %>>Seychelles</option>
+                  <option value="SL" <%= data.country == 'SL' ? 'selected' : '' %>>Sierra Leone</option>
+                  <option value="SG" <%= data.country == 'SG' ? 'selected' : '' %>>Singapore</option>
+                  <option value="SX" <%= data.country == 'SX' ? 'selected' : '' %>>Sint Maarten (Dutch part)</option>
+                  <option value="SK" <%= data.country == 'SK' ? 'selected' : '' %>>Slovakia</option>
+                  <option value="SI" <%= data.country == 'SI' ? 'selected' : '' %>>Slovenia</option>
+                  <option value="SB" <%= data.country == 'SB' ? 'selected' : '' %>>Solomon Islands</option>
+                  <option value="SO" <%= data.country == 'SO' ? 'selected' : '' %>>Somalia</option>
+                  <option value="ZA" <%= data.country == 'ZA' ? 'selected' : '' %>>South Africa</option>
+                  <option value="GS" <%= data.country == 'GS' ? 'selected' : '' %>>South Georgia and the South Sandwich Islands</option>
+                  <option value="SS" <%= data.country == 'SS' ? 'selected' : '' %>>South Sudan</option>
+                  <option value="ES" <%= data.country == 'ES' ? 'selected' : '' %>>Spain</option>
+                  <option value="LK" <%= data.country == 'LK' ? 'selected' : '' %>>Sri Lanka</option>
+                  <option value="SD" <%= data.country == 'SD' ? 'selected' : '' %>>Sudan</option>
+                  <option value="SR" <%= data.country == 'SR' ? 'selected' : '' %>>Suriname</option>
+                  <option value="SJ" <%= data.country == 'SJ' ? 'selected' : '' %>>Svalbard and Jan Mayen</option>
+                  <option value="SZ" <%= data.country == 'SZ' ? 'selected' : '' %>>Swaziland</option>
+                  <option value="SE" <%= data.country == 'SE' ? 'selected' : '' %>>Sweden</option>
+                  <option value="CH" <%= data.country == 'CH' ? 'selected' : '' %>>Switzerland</option>
+                  <option value="SY" <%= data.country == 'SY' ? 'selected' : '' %>>Syrian Arab Republic</option>
+                  <option value="TW" <%= data.country == 'TW' ? 'selected' : '' %>>Taiwan, Province of China</option>
+                  <option value="TJ" <%= data.country == 'TJ' ? 'selected' : '' %>>Tajikistan</option>
+                  <option value="TZ" <%= data.country == 'TZ' ? 'selected' : '' %>>Tanzania, United Republic of</option>
+                  <option value="TH" <%= data.country == 'TH' ? 'selected' : '' %>>Thailand</option>
+                  <option value="TL" <%= data.country == 'TL' ? 'selected' : '' %>>Timor-Leste</option>
+                  <option value="TG" <%= data.country == 'TG' ? 'selected' : '' %>>Togo</option>
+                  <option value="TK" <%= data.country == 'TK' ? 'selected' : '' %>>Tokelau</option>
+                  <option value="TO" <%= data.country == 'TO' ? 'selected' : '' %>>Tonga</option>
+                  <option value="TT" <%= data.country == 'TT' ? 'selected' : '' %>>Trinidad and Tobago</option>
+                  <option value="TN" <%= data.country == 'TN' ? 'selected' : '' %>>Tunisia</option>
+                  <option value="TR" <%= data.country == 'TR' ? 'selected' : '' %>>Turkey</option>
+                  <option value="TM" <%= data.country == 'TM' ? 'selected' : '' %>>Turkmenistan</option>
+                  <option value="TC" <%= data.country == 'TC' ? 'selected' : '' %>>Turks and Caicos Islands</option>
+                  <option value="TV" <%= data.country == 'TV' ? 'selected' : '' %>>Tuvalu</option>
+                  <option value="UG" <%= data.country == 'UG' ? 'selected' : '' %>>Uganda</option>
+                  <option value="UA" <%= data.country == 'UA' ? 'selected' : '' %>>Ukraine</option>
+                  <option value="AE" <%= data.country == 'AE' ? 'selected' : '' %>>United Arab Emirates</option>
+                  <option value="GB" <%= data.country == 'GB' ? 'selected' : '' %>>United Kingdom</option>
+                  <option value="US" <%= data.country == 'US' ? 'selected' : '' %>>United States</option>
+                  <option value="UM" <%= data.country == 'UM' ? 'selected' : '' %>>United States Minor Outlying Islands</option>
+                  <option value="UY" <%= data.country == 'UY' ? 'selected' : '' %>>Uruguay</option>
+                  <option value="UZ" <%= data.country == 'UZ' ? 'selected' : '' %>>Uzbekistan</option>
+                  <option value="VU" <%= data.country == 'VU' ? 'selected' : '' %>>Vanuatu</option>
+                  <option value="VE" <%= data.country == 'VE' ? 'selected' : '' %>>Venezuela, Bolivarian Republic of</option>
+                  <option value="VN" <%= data.country == 'VN' ? 'selected' : '' %>>Viet Nam</option>
+                  <option value="VG" <%= data.country == 'VG' ? 'selected' : '' %>>Virgin Islands, British</option>
+                  <option value="VI" <%= data.country == 'VI' ? 'selected' : '' %>>Virgin Islands, U.S.</option>
+                  <option value="WF" <%= data.country == 'WF' ? 'selected' : '' %>>Wallis and Futuna</option>
+                  <option value="EH" <%= data.country == 'EH' ? 'selected' : '' %>>Western Sahara</option>
+                  <option value="YE" <%= data.country == 'YE' ? 'selected' : '' %>>Yemen</option>
+                  <option value="ZM" <%= data.country == 'ZM' ? 'selected' : '' %>>Zambia</option>
+                  <option value="ZW" <%= data.country == 'ZW' ? 'selected' : '' %>>Zimbabwe</option>
+                </select>
+                <% if (errors.gender) { %>
+                <p class="error-message"><%= errors.gender.msg %></p>
+                <% } %>
+              </div>
+
+              <div class="input-group">
+                <p class="info-bold">
+                  <input type="checkbox" name="policy" <%= data.policy ? 'checked' : '' %> required>
+                  I agree to provide my data and I confirm that I accept the terms listed in the <a href="/service-terms/disclaimer">website disclaimer</a>,
+                  in the "<a href="/service-terms/privacy-policy">privacy policy</a>" document, in the
+                  "<a href="/service-terms/terms-of-use-agreement">terms of use agreement</a>" document.
+                </p>
+                <% if (errors.policy) { %>
+                <p class="error-message"><%= errors.policy.msg %></p>
+                <% } %>
+              </div>
+
+              <button class="btn">
+                Sign in <i class="fas fa-caret-right"></i>
+              </button>
+
+            </form>
+
+            <a class="text-secondary" href="/login">Already have an account? Log in here</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+
+</body>
+
+</html>

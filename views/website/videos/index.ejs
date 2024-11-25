@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>Videos - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section id="media-set-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+
+            <h2>Videos</h2>
+
+            <%- include('../partials/search_bar', { query: null, action: '/search/videos', placeholder: 'Search videos' }) %>
+
+            <%- include('../partials/media/videos_list', { videos, options: { displayMode: 'grid' } }) %>
+
+          </div>
+        </div>
+
+        <%- include('../partials/pagination', { path: '/videos', params: null }) %>
+
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  
+  <script src="/js/media.js"></script>
+</body>
+
+</html>

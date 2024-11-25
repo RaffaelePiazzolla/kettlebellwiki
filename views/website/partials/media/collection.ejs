@@ -1,0 +1,21 @@
+<%
+  let thumbnailPath = '/img/default_thumbnail.jpg';
+  if (collection.mainVideo) {
+    const vimeoThumbnailId = collection.mainVideo.vimeoThumbnailId;
+    thumbnailPath = `https://i.vimeocdn.com/video/${vimeoThumbnailId}.webp?mw=1100&mh=619`;
+  }
+%> 
+
+<div class="collection">
+  <a class="thumbnail" href="/collections/<%= collection.id %>">
+    <img src="<%= thumbnailPath %>" alt="collection thumbnail" />
+  </a>
+  <div class="info">
+    <div class="name"><%= trimMaxLength(collection.name, options.maxNameLength || 50) %></div>
+    <% if (!(options.showDescription === false) && collection.description) { %>
+    <p class="description">
+      <%= trimMaxLength(collection.description, options.maxDescriptionLength || 100) %>
+    </p>
+    <% } %>
+  </div>
+</div>

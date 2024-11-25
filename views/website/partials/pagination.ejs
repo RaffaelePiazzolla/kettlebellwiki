@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col">
+    <div class="pagination">
+      <div class="pages-container">
+        <div class="page previous">
+          <a href="<%= path %><%= params ? `?${params}&` : '?' %>page=<%= Math.max(currentPageIndex - 1, 0) %>">
+            <i class="fas fa-caret-left"></i>
+          </a>
+        </div>
+        <div class="page current"><%= currentPageIndex + 1 %></div>
+        <div class="page next">
+          <a href="<%= path %><%= params ? `?${params}&` : '?' %>page=<%= currentPageIndex + 1 %>">
+            <i class="fas fa-caret-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

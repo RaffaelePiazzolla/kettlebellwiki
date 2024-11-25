@@ -1,0 +1,21 @@
+<div class="video">
+  <a class="thumbnail" href="/videos/<%= video.id %>">
+    <img
+      src="<%= video.vimeoThumbnailId ? `https://i.vimeocdn.com/video/${video.vimeoThumbnailId}.webp?mw=1100&mh=619` : '/img/default_thumbnail.jpg' %>"
+      alt="video thumbnail" />
+  </a>
+  <div class="info">
+    <header class="title"><%= trimMaxLength(video.title, options.maxTitleLength || 50) %></header>
+    <div class="views"><%= video.views %> view<%= video.views != 1 ? 's' : '' %></div>
+    <% if (options.showVisualizationDate && video.visualizationDate) { %>
+      <time datetime="<%= video.visualizationDate.toLocaleDateString() %>" class="visualization-date">
+        <%= video.visualizationDate.toLocaleDateString() %>
+      </time>
+    <% } %>
+    <% if (options.showDescription === true && video.description) { %>
+      <p class="description">
+        <%= trimMaxLength(video.description, options.maxDescriptionLength || 100) %>
+      </p>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title><%= query || 'Search' %> - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section id="media-set-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+
+            <%- include('../partials/search_bar', { query, action: '/search', placeholder: 'Search' }) %>
+
+            <%- include('../partials/media/videos_list', { videos, options: { displayMode: 'grid', withTitle: true, withOptions: true } }) %>
+
+            <%- include('../partials/media/collections_list', { collections, options: { displayMode: 'grid', withTitle: true, withOptions: true } }) %>
+
+          </div>
+        </div>
+
+        <% if (query) { %>
+          <%- include('../partials/pagination', { path: '/search', params: `q=${query}` }) %>
+        <% } %>
+
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  
+  <script src="/js/media.js"></script>
+</body>
+
+</html>

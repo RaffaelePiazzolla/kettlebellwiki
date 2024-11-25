@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>Change password - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../../partials/header') %>
+
+  <main>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 class="uppercase">
+              <span class="text-primary">Password</span><br>
+              <span>Reset</span>
+            </h2>
+            <p>
+              Enter in the form your new password. Please choose a password that respects the required security parameters. If,
+              after this process, your password didn't change, contact me at <a href="mailto:info@ptlarosa.fitness">info@ptlarosa.fitness</a>.
+            </p>
+          </div>
+
+          <div class="col">
+
+            <form action="/user/change-password" method="post" novalidate>
+
+              <div class="input-group">
+                <label for="password">Password <i class="far fa-eye"></i></label>
+                <input type="password" name="password" placeholder="secureP@ssw0rd"
+                  value="<%= data.password || (errors.password && errors.password.value) || '' %>">
+                <p class="info">
+                  Your password must be at least 8 characters long and must contain at least one uppercase letter, one lowercase letter,
+                  one number and one symbol <span class="monospace">(eg: '+', ':', '\', '%', '.', '>', ...)</span>
+                </p>
+                <% if (errors.password) { %>
+                <p class="error-message"><%= errors.password.msg %></p>
+                <% } %>
+              </div>
+
+              <button class="btn">Change password</button>
+            </form>
+            
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../../partials/footer') %>
+
+  
+</body>
+
+</html>

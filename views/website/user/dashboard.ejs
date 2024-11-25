@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/user.css">
+  <title>Dashboard - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Welcome <%= user.name %> <%= user.surname %></h2>
+            <div class="tiles-grid">
+              <% if (!didUserPay) { %>
+                <a href="/purchase" class="tile">
+                  <h5>Buy subscription</h5>
+                  <span><i class="fas fa-money-check-alt"></i></span>
+                </a>
+              <% } %>
+              <% if (!didUserPay) { %>
+                <a href="/trial" class="tile">
+                  <h5>Trial</h5>
+                  <span><i class="fas fa-coins"></i></span>
+                </a>
+              <% } %>
+              <a href="/videos" class="tile">
+                <h5>Videos</h5>
+                <span><i class="fas fa-play"></i></span>
+              </a>
+              <a href="/collections" class="tile">
+                <h5>Collections</h5>
+                <span><i class="fas fa-list-ul"></i></span>
+              </a>
+              <a href="/search" class="tile">
+                <h5>Search</h5>
+                <span><i class="fas fa-search"></i></span>
+              </a>
+              <a href="/ebooks" class="tile">
+                <h5>Ebooks</h5>
+                <span><i class="fas fa-file-pdf"></i></span>
+              </a>
+              <a href="/user/history" class="tile">
+                <h5>History</h5>
+                <span><i class="fas fa-history"></i></span>
+              </a>
+              <% if (didUserPay) { %>
+                <a href="/user/random-training-plan" class="tile">
+                  <h5>Random training generator</h5>
+                  <span><i class="fas fa-random"></i></span>
+                </a>
+              <% } %>
+              <% if (didUserPay) { %>
+                <a href="/purchase" class="tile">
+                  <h5>Buy subscription</h5>
+                  <span><i class="fas fa-money-check-alt"></i></span>
+                </a>
+              <% } %>
+              <a href="/user/training-plan" class="tile">
+                <h5>Custom training Plan</h5>
+                <span><i class="fas fa-clipboard-list"></i></span>
+              </a>
+              <a href="/user/reset-password" class="tile">
+                <h5>Password reset</h5>
+                <span><i class="fas fa-key"></i></span>
+              </a>
+              <a href="/user/logout" onclick="return ensureLogout()" class="tile">
+                <h5>Logout</h5>
+                <span><i class="fas fa-sign-out-alt"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    function ensureLogout() {
+      return confirm('Do you really want to log out?');
+    }
+  </script>
+  
+</body>
+
+</html>

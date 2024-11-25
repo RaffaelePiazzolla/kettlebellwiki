@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <title>Welcome to Kettlebell Wiki</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <%- include('partials/header') %>
+
+    <div class="main">
+      <h1>Hello <%= user.name %> <%= user.surname %></h1>
+      <p>
+        Welcome to the beta test program of <a href="<%= domain || env.website.rootUrl %>">Kettlebell Wiki</a>, the ultimate kettlebell exercise platform!
+        By accessing the platform with (<a href="<%= domain || env.website.rootUrl %>"><%= domain || env.website.rootUrl %></a>) the credentials below
+      </p>
+  
+      <h3>Email: <span class="text-secondary"><%= user.email %></span></h3>
+      <h3>Password: <span class="text-secondary"><%= plainTextPassword %></span></h3>
+      
+      <p>
+        you will be able to test and use all the features of the website for free. 
+        We would love to know your feedback on the platform and exercises, so we can keep improving it.<br>
+        
+        For any questions, feedback or doubts, you can contact me at
+        <a href="mailto:mailer@ptlarosa.fitness">mailer@ptlarosa.fitness</a> in English or Italian.
+        As beta testers and friends of Kettlebell Wiki, your credentials will allow you to access the platform anytime, forever!
+      </p>
+  
+      <div class="message">
+        The "password reset" functionality is temporarily disabled, therefore it is extremely important to log in using the
+        credentials listed above (without attempting to change them).
+      </div>
+    </div>
+  
+    <%- include('partials/footer') %>
+  
+  </div>
+</body>
+
+</html>

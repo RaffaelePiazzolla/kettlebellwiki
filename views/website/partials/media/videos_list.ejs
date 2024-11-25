@@ -1,0 +1,35 @@
+<%# args: { videos: Video[], options: { displayMode: string, withOptions?: boolean, withTitle?: boolean, title?: string, bigTitle?: boolean }  } %>
+<div class="media-set" <%- !options.withTitle ? 'style="margin-top: 20px"' : '' %>>
+  <header class="media-set-title">
+    <% if (options.withTitle || options.title) { %>
+      <% if (options.withTitle) { %>
+        <a href="/videos">
+          <h3>Videos</h3>
+        </a>
+      <% } else { %>
+        <% if (options.bigTitle) { %>
+          <h2><%= options.title %></h2>
+        <% } else { %>
+          <h3><%= options.title %></h3>
+        <% } %>
+      <% } %>
+    <% } %>
+    <% if (options.withOptions) { %>
+      <div class="options">
+        <i class="fas fa-th-large <%= options.displayMode == 'grid' ? 'selected' : '' %>"></i>
+        <i class="fas fa-list-ul <%= options.displayMode == 'vertical' ? 'selected' : '' %>"></i>
+      </div>
+    <% } %>
+  </header>
+  <% if (videos.length === 0) { %>
+    <div class="empty-list">
+      <p>No videos found</p>
+    </div>
+  <% } else { %>
+    <div class="<%= options.displayMode %>-list">
+      <% videos.forEach(video => { %>
+        <%- include('video', { video, options }) %>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

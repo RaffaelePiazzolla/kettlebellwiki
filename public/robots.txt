@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /public/css
+Disallow: /public/js
+Disallow: /public/img
+Allow: /public/img/logo.png
+Allow: /public/img/ebook_kettlebell_is_the_way.jpg
+Allow: /public/img/what_is_kettlebellwiki.jpeg
+Disallow: /ip_logs.txt

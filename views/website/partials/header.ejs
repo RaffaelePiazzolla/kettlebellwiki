@@ -1,0 +1,19 @@
+<nav class="main-nav">
+  <div id="brand">
+    <a href="/">
+      <img src="/img/logo.png" alt="kettlebellwiki logo">
+      <span id="brand-name">Kettlebell <span>Wiki</span></span>
+    </a>
+  </div>
+  <div class="menu">
+    <div id="actions">
+      <a href="/search"><i class="fas fa-search"></i></a>
+      <% if (!isUserLoggedIn) { %>
+        <a class="btn-small" href="/sign-in">Sign in</a>
+        <a class="btn-small" href="/login">Login</a>
+      <% } else { %>
+        <a class="btn-small" href="/user/dashboard">Dashboard</a>
+      <% } %>
+    </div>
+  </div>
+</nav>

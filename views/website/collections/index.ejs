@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>Collections - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section id="media-set-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+
+            <h2>Collections</h2>
+
+            <%- include('../partials/search_bar', { query: null, action: '/search/collections', placeholder: 'Search collections' }) %>
+
+            <%- include('../partials/media/collections_list', { collections, options: { displayMode: 'grid' } }) %>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  
+  <script src="/js/media.js"></script>
+</body>
+
+</html>

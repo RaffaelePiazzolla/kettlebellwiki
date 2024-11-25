@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/media.css">
+  <title>Training Plan - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <section id="media-set-section">
+      <div class="container<%= trainingPlan ? '-fluid' : '' %>">
+        <div class="row">
+          <div class="col">
+            <h2>Custom training plan</h2>
+
+            <div id="training-plan">
+              <% if (!trainingPlan) { %>
+                <p>
+                  If you want more than a random training routine, you are in the right place. I can create a custom training plan for
+                  you, that will match your needs, taking into account previous injuries or problems you might have. After purchasing your
+                  custom training plan, you can get in touch with me at <a href="mailto:info@ptlarosa.fitness">info@ptlarosa.fitness</a>
+                  to describe in detail all the things I need to know in order to create your personal training plan. See you soon!
+                </p>
+                <a href="https://www.paypal.me/ptlarosa/100EUR" class="btn" rel="noreferrer" target="_blank">
+                  Buy custom training plan <i class="fab fa-paypal"></i>
+                </a>
+              <% } else { %>
+                <%- include('../partials/media/videos_list', { videos: trainingPlan.videos, options: { displayMode: 'grid' } }) %>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  
+  <script src="/js/media.js"></script>
+</body>
+
+</html>

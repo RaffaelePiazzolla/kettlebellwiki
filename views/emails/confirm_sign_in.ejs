@@ -1,0 +1,32 @@
+<% const url = `${env.website.rootUrl}/user/validate?key=${validationKey}`; %>
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <%- include('partials/head') %>
+  <title>Confirm your email address - Kettlebell Wiki</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <%- include('partials/header') %>
+  
+    <div class="main">
+      <h1>Confirm your email address</h1>
+      <p>
+        To validate your account on Kettlebell Wiki click the button below:
+        <%- include('partials/button', { url ,content: 'Confirm ⯈' }) %>
+  
+        Alternatively, copy and paste this link in your browser address bar:
+        <a class="link" href="<%= url %>"><%= url %></a>
+      </p>
+    </div>
+  
+    <%- include('partials/footer') %>
+    
+  </div>
+</body>
+
+</html>

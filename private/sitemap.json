@@ -1,0 +1,144 @@
+{
+  "domain": "kettlebellwiki.ptlarosa.fitness",
+  "protocol": "https",
+  "routes": [
+    {
+      "path": "\\/",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/sign-in",
+      "loggingEnabled": true,
+      "methods": [ "POST", "GET" ]
+    },
+    {
+      "path": "\\/login",
+      "loggingEnabled": true,
+      "methods": [ "POST", "GET" ]
+    },
+    {
+      "path": "\\/trial",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/privacy-policy",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/collections",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/collections\\/\\d+",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/ebooks",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/ebooks\\/kettlebell-is-the-way\\.pdf",
+      "loggingEnabled": true,
+      "isFile": true,
+      "filePath": "/private/kettlebell-is-the-way.pdf"
+    },
+    {
+      "path": "\\/purchase",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/search",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/search\\/videos",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/search\\/collections",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/service-terms\\/disclaimer",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/service-terms\\/privacy-policy",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/service-terms\\/terms-of-use-agreement",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/dashboard",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/training-plan",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/random-training-plan",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/history",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/logout",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/reset-password",
+      "loggingEnabled": true,
+      "methods": [ "POST", "GET" ]
+    },
+    {
+      "path": "\\/user\\/change-password",
+      "loggingEnabled": true,
+      "methods": [ "POST", "GET" ]
+    },
+    {
+      "path": "\\/user\\/validate",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/user\\/validation-needed",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/videos",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/videos\\/\\d+",
+      "loggingEnabled": true
+    },
+    {
+      "path": "\\/css\\/.+?\\.css",
+      "loggingEnabled": false,
+      "isFile": true,
+      "filePath": "/public/css"
+    },
+    {
+      "path": "\\/img\\/.+?\\.(jpg|jpeg|png|webp|svg)",
+      "loggingEnabled": false,
+      "isFile": true,
+      "filePath": "/public/img"
+    },
+    {
+      "path": "\\/js\\/.+?\\.js",
+      "loggingEnabled": false,
+      "isFile": true,
+      "filePath": "/public/js"
+    },
+    {
+      "path": "\\/robots\\.txt",
+      "loggingEnabled": true,
+      "isFile": true,
+      "filePath": "/public/robots.txt"
+    }
+  ]
+}
