@@ -2,7 +2,8 @@
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![Vimeo](https://img.shields.io/badge/Vimeo-1AB7EA?style=for-the-badge&logo=vimeo&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![Namecheap](https://img.shields.io/badge/Namecheap-DE3723?style=for-the-badge&logo=namecheap&logoColor=white) ![EJS](https://img.shields.io/badge/EJS-8BC0D0?style=for-the-badge&logo=ejs&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-> [!NOTE] Kettlebell Wiki is a project initiated in 2019 and no longer available due to discontinuation in 2022. The current commit is the first public upload of the codebase after confidentiality requirements expired.
+> [!NOTE]
+> Kettlebell Wiki is a project initiated in 2019 and no longer available due to discontinuation in 2022. The current commit is the first public upload of the codebase after confidentiality requirements expired.
 
 Kettlebell Wiki was a specialized subscription-based fitness platform exclusively dedicated to kettlebell workouts. The platform was commissioned to me in 2019 by a personal trainer. Over the months, I wrote the entire codebase from scratch, designing every end of the project: server code architecture, database modeling, UI/UX design, and hosting.
 
